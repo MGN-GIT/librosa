@@ -84,7 +84,7 @@ jobs:
             echo "TEMP=C:\tmp" >> $env:GITHUB_ENV
           shell: pwsh
 
-        # ---- Standard path: Miniforge via setup-miniconda ----
+
         - name: Setup Miniforge
           if: ${{ !matrix.win_arm64 }}
           uses: conda-incubator/setup-miniconda@v4
@@ -94,7 +94,7 @@ jobs:
             conda-remove-defaults: true
             python-version: ${{ matrix.python-version }}
 
-        # ---- Windows ARM64 path: conda-standalone (as in numba workflow) ----
+
         - name: Set up conda-standalone (Windows ARM64)
           if: ${{ matrix.win_arm64 }}
           uses: conda-incubator/setup-conda-standalone@00a34805e93a8b640aee5f8a20e8f481ad77e3b4 # v0.1.0
